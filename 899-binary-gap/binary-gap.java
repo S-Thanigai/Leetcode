@@ -2,16 +2,20 @@ class Solution {
     public int binaryGap(int n)
     {
         String b = Integer.toBinaryString(n);
-        int prev = -1, ans = 0;
-
-        for (int i = 0; i < b.length(); i++) {
-            if (b.charAt(i) == '1') {
-                if (prev != -1) {
-                    ans = Math.max(ans, i - prev);
-                }
-                prev = i;
+        int ma = 0;
+        int i = 0;
+        int j = i+1;
+        int l = b.length();
+        while(i<l && j<l)
+        {
+            if(b.charAt(i)==b.charAt(j))
+            {
+                int d = j-i;
+                ma = Math.max(ma,d);
+                i=j;
             }
+            j++;
         }
-        return ans;
+        return ma;
     }
 }
