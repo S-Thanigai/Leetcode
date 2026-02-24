@@ -14,25 +14,15 @@
  * }
  */
 class Solution {
-    int su = 0;
     public int sumRootToLeaf(TreeNode root)
     {
-        dfs(root,"");
-        return su;
+       return dfs(root,0);
     }
-    private void dfs(TreeNode node,String s)
+    private int dfs(TreeNode node,int curr)
     {
-        if(node==null)
-        {
-            return;
-        }
-        s+=node.val;
-        while(node.left==null && node.right==null)
-        {
-            su += Integer.parseInt(s,2);
-            return;
-        }
-    dfs(node.left,s);
-    dfs(node.right,s);
+        if(node==null) return 0;
+        curr=curr*2+node.val;
+        if(node.left==null&&node.right==null) return curr;
+        return dfs(node.left,curr)+dfs(node.right,curr);
     }
 }
