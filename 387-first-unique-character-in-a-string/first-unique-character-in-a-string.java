@@ -2,19 +2,19 @@ class Solution
 {
     public int firstUniqChar(String s)
     {
-        char[] arr = s.toCharArray();
-        for (int i = 0; i < arr.length; i++) {
-            int c = 0;
-            for (int j = 0; j < arr.length; j++) {
-                if (i != j && arr[i] == arr[j]) {
-                    c++;
-                    break;
-                }
-            }
-            if (c == 0) {
+       int arr[] = new int[26];
+       int len = s.length();
+       for(int i=0;i<len;i++)
+       {
+            arr[s.charAt(i)-'a']++;
+       }
+       for(int i=0;i<len;i++)
+       {
+            if(arr[s.charAt(i)-'a']==1)
+            {
                 return i;
             }
-        }
-        return -1;
+       }
+       return -1;
     }
 }
