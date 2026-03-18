@@ -2,7 +2,8 @@ class Solution {
     public int minNumberOperations(int[] target)
     {
         int sum =  target[0];
-        for(int i=1;i<target.length;i++)
+        int len = target.length;
+        for(int i=1;i<len;i++)
         {
             if(target[i]>target[i-1])
             {
