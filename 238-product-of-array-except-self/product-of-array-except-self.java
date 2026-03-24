@@ -1,14 +1,14 @@
 class Solution {
-    static {
-        Runtime.getRuntime().gc();
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            try (FileWriter f = new FileWriter("display_runtime.txt")) {
-                f.write("0");
-            } catch (Exception ignored) {
+    // static {
+    //     Runtime.getRuntime().gc();
+    //     Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+    //         try (FileWriter f = new FileWriter("display_runtime.txt")) {
+    //             f.write("0");
+    //         } catch (Exception ignored) {
 
-            }
-        }));
-    }
+    //         }
+    //     }));
+    //}
     public int[] productExceptSelf(int[] nums)
     {
         int p = 1;
