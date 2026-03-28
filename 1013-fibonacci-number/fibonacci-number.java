@@ -11,7 +11,7 @@ class Solution {
             dp[n] = n;
             return n;
         }
-        return helper(n-1,dp) + helper(n-2,dp);
+        return dp[n]=helper(n-1,dp) + helper(n-2,dp);
 
     }
 }
