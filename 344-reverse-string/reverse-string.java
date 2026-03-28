@@ -3,13 +3,17 @@ class Solution {
     {
         int l = 0;
         int r = s.length-1;
-        while(l<r)
+        helper(l,r,s);
+    }
+    public void helper(int l,int r,char s[])
+    {
+        if(l>=r)
         {
-            char t = s[l];
-            s[l] = s[r];
-            s[r] = t;
-            l++;
-            r--;
+            return;
         }
+        char temp = s[l];
+        s[l] = s[r];
+        s[r] = temp;
+        helper(l+1,r-1,s);
     }
 }
