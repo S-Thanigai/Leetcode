@@ -4,7 +4,8 @@ class Solution {
         int arr[] = new int[58];
         for(int i=0;i<word.length();i++)
         {
-            arr[word.charAt(i)-'A']++;
+            char ch = word.charAt(i);
+            arr[ch-'A']++;
         }
         int c = 0;
         for(int i=0;i<26;i++)
