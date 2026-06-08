@@ -21,6 +21,7 @@ class Solution {
                 if(cop[k]<0)
                 {
                     fl = false;
+                    break;
                 }
             }
             if(fl)
