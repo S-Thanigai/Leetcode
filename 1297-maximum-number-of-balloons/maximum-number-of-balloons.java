@@ -31,23 +31,27 @@ class Solution {
                 nc+=1;
             }
         }
-        int c = 0;
-        while(true)
-        {
-            if(bc<1 || ac<1 || lc<2 || oc<2 || nc<1)
-            {
-                break;
-            }
-            else
-            {
-                bc-=1;
-                ac-=1;
-                lc-=2;
-                oc-=2;
-                nc-=1;
-                c+=1;
-            }
-        }
-        return c;
+        // int c = 0;
+        // while(true)
+        // {
+        //     if(bc<1 || ac<1 || lc<2 || oc<2 || nc<1)
+        //     {
+        //         break;
+        //     }
+        //     else
+        //     {
+        //         bc-=1;
+        //         ac-=1;
+        //         lc-=2;
+        //         oc-=2;
+        //         nc-=1;
+        //         c+=1;
+        //     }
+        // }
+        // return c;
+        return Math.min(
+                Math.min(bc, ac),
+                Math.min(Math.min(lc / 2, oc / 2), nc)
+        );
     }
 }
