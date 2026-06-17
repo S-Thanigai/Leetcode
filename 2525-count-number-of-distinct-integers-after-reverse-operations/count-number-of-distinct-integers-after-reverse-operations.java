@@ -1,13 +1,21 @@
 class Solution {
     public int countDistinctIntegers(int[] nums)
     {
-        Set<Integer> hs = new HashSet<>();
+        int arr[] = new int[1000001];
         for(int n:nums)
         {
-            hs.add(n);
-            hs.add(reverse(n));
+            arr[n]++;
+            arr[reverse(n)]++;
         }
-        return hs.size();
+        int c = 0;
+        for(int i=1;i<1000001;i++)
+        {
+            if(arr[i]>0)
+            {
+                c+=1;
+            }
+        }
+        return c;
     }
     public int reverse(int n)
     {
