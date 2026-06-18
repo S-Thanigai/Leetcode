@@ -6,10 +6,11 @@ class Solution {
         for(int i=0;i+9<s.length();i++)
         {
             String sub = s.substring(i,i+10);
-            if(!seen.add(sub))
+            if(seen.contains(sub))
             {
                 repe.add(sub);
             }
+            seen.add(sub);
         }
         return new ArrayList(repe);
     }
