@@ -1,8 +1,9 @@
-WITH temp AS (
-    SELECT player_id, MIN(event_date) AS first_login_date
-    FROM Activity 
-    GROUP BY player_id
+with cte as
+(
+    select player_id,
+    min(event_date) as first_login
+    from Activity group by player_id
 )
-select round(
-    sum(Datediff(a.event_date,t.first_login_date)=1) / count(distinct a.player_id),2) as fraction
-    from Activity a join temp t on a.player_id = t.player_id;
+select round(sum(datediff(a.event_date,c.first_login)=1)/count(distinct a.player_id),2) as fraction from Activity a join cte c on a.player_id = c.player_id;
+
+
